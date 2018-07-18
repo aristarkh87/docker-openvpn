@@ -45,7 +45,7 @@ OpenVPN server in a Docker container complete with an EasyRSA PKI CA.
 * Generate configs for server (select "Setup server")
 
   ```
-  $ bash setup.sh
+  $ bash setup.sh -s $server_fqdn
   ```
 
 * Run container
@@ -57,7 +57,7 @@ OpenVPN server in a Docker container complete with an EasyRSA PKI CA.
 * Generate clients (select "Setup client"). Ovpn files are added to ./ovpn/
 
   ```
-  $ bash setup.sh
+  $ bash setup.sh -c $username
   ```
 
 ## References
