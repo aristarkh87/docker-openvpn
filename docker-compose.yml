@@ -1,7 +1,7 @@
 version: "3"
 services:
   openvpn:
-    image: registry.gitlab.com/aristarkh87/docker-openvpn
+    image: aristarkh87/docker-openvpn
     ports:
       - "1194:1194/udp"
     volumes:
