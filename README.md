@@ -1,4 +1,5 @@
 # OpenVPN for Docker
+[![Build Status](https://travis-ci.org/aristarkh87/docker-openvpn.svg?branch=master)](https://travis-ci.org/aristarkh87/docker-openvpn)
 
 OpenVPN server in a Docker container complete with an EasyRSA PKI CA.
 
