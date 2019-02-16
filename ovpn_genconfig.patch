@@ -1,0 +1,21 @@
+--- ./docker-openvpn/bin/ovpn_genconfig	2019-02-16 12:01:08.357865300 +0500
++++ ./docker-openvpn/bin/ovpn_genconfig.fixed	2019-02-16 12:29:21.714714700 +0500
+@@ -352,7 +352,6 @@
+ 
+ [ -n "${OVPN_CLIENT_TO_CLIENT:-}" ] && echo "client-to-client" >> "$conf"
+ [ "$OVPN_COMP_LZO" == "1" ] && echo "comp-lzo" >> "$conf"
+-[ "$OVPN_COMP_LZO" == "0" ] && echo "comp-lzo no" >> "$conf"
+ 
+ [ -n "${OVPN_FRAGMENT:-}" ] && echo "fragment $OVPN_FRAGMENT" >> "$conf"
+ 
+@@ -370,10 +369,6 @@
+   process_push_config "dhcp-option DNS $i"
+ done
+ 
+-if [ "$OVPN_COMP_LZO" == "0" ]; then
+-    process_push_config "comp-lzo no"
+-fi
+-
+ [ ${#OVPN_PUSH[@]} -gt 0 ] && for i in "${OVPN_PUSH[@]}"; do
+   process_push_config "$i"
+ done
