@@ -19,26 +19,26 @@ OpenVPN server in a Docker container complete with an EasyRSA PKI CA.
   private key used by the newly generated certificate authority.
 
   ```
-  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm aristarkh87/freedom/openvpn ovpn_genconfig -u udp://freedom.aristarkh.net
-  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm -it aristarkh87/freedom/openvpn ovpn_initpki
+  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm aristarkh87/docker-openvpn ovpn_genconfig -u udp://freedom.aristarkh.net
+  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm -it aristarkh87/docker-openvpn ovpn_initpki
   ```
 
 * Start OpenVPN server process
 
   ```
-  docker run -v "$OVPN_DATA":"/etc/openvpn" -d -p 1194:1194/udp --cap-add=NET_ADMIN aristarkh87/freedom/openvpn
+  docker run -v "$OVPN_DATA":"/etc/openvpn" -d -p 1194:1194/udp --cap-add=NET_ADMIN aristarkh87/docker-openvpn
   ```
 
 * Generate a client certificate without a passphrase
 
   ```
-  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm -it aristarkh87/freedom/openvpn easyrsa build-client-full CLIENTNAME nopass
+  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm -it aristarkh87/docker-openvpn easyrsa build-client-full CLIENTNAME nopass
   ```
 
 * Retrieve the client configuration with embedded certificates
 
   ```
-  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm aristarkh87/freedom/openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
+  docker run -v "$OVPN_DATA":"/etc/openvpn" --log-driver=none --rm aristarkh87/docker-openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
   ```
 
 ## Up and running
