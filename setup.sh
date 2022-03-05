@@ -34,20 +34,16 @@ revoke_client() {
     eval "$DOCKER_COMMAND" easyrsa gen-crl
 }
 
-main() {
-    while getopts "c:r:s:" opt; do
-        case $opt in
-            c)
-                setup_client "$OPTARG"
-                ;;
-            r)
-                revoke_client "$OPTARG"
-                ;;
-            s)
-                setup_server "$OPTARG"
-                ;;
-        esac
-    done
-}
-
-main
+while getopts "c:r:s:" opt; do
+    case $opt in
+        c)
+            setup_client "$OPTARG"
+            ;;
+        r)
+            revoke_client "$OPTARG"
+            ;;
+        s)
+            setup_server "$OPTARG"
+            ;;
+    esac
+done
